@@ -1,0 +1,67 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using dataModels.ViewModels
+@model ChatViewModel
+@{
+    // string TouserGuidString = BitConverter.ToString(@Model.Userid);
+} 
+<div class="bg-success text-light mt-5 py-3 px-3">
+    <div class="userProfile bg-dark text-light text-center py-2 border-2 border-light borderCustom">
+        @Model.FirstName @Model.LastName (@Model.PhoneNumber)
+    </div>
+    <div class="chatList text-light px-2 border border-2 border-white position-relative pt-3 overflow-auto bgChat">
+        @foreach (var msg in Model.commonUserModels)
+        {
+            @* byte[] userGuidBytes = msg.UserId;
+            string userGuidString = BitConverter.ToString(userGuidBytes); *@
+            <div class="message-container px-2">
+
+                @if (msg.UserId != Model.ForFirstUser)
+                {
+                    <div class="msg-sent bgSender text-light mt-2 ps-1 pe-2 py-2 border border-white d-inline-block float-end">
+                        @msg.Sms
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="message-details text-end mt-1">
+                        <div class="message-timestamp">
+                            @msg.CreationTime?.ToString("dd MMMM yyyy HH:mm:ss") <span class="message-sender">(You)</span>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="msg-receive bg-dark text-light mt-2 ps-1 pe-2 py-2 border border-white position-relative d-inline-block">
+                        @msg.Sms
+                    </div>
+                    <div class="message-details text-start mt-1">
+                        <div class="message-timestamp">
+                            @msg.CreationTime?.ToString("dd MMMM yyyy HH:mm:ss") <span class="message-sender">(@Model.FirstName @Model.LastName)</span>
+                        </div>
+                    </div>
+                }
+                <div class="clearfix"></div>
+            </div>
+        }
+    </div>
+    <div class="message">
+        <div class="mb-3">
+            <label for="comment-text" class="form-label mt-2">Write message</label>
+            <textarea class="form-control bg-light text-dark" id="message-text" rows="1"
+                      placeholder="Enter your message here.."></textarea>
+        </div>
+        <div>
+            @* <button class="btn btn-primary border-white BtnHover my-2 text-center" id="post-message" data-toUserId="@TouserGuidString" type="button"> *@
+            <button class="btn btn-primary border-white BtnHover my-2 text-center" id="post-message" data-toUserId="@Model.Userid" type="button">
+                Post Message
+                <i class="bi bi-arrow-right-circle-fill"></i>
+            </button>
+        </div>
+    </div>
+
+</div>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}

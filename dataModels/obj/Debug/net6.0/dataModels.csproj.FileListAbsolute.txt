@@ -1,0 +1,14 @@
+C:\Users\WIN-AHD-003\source\repos\ChatApp\dataModels\bin\Debug\net6.0\dataModels.deps.json
+C:\Users\WIN-AHD-003\source\repos\ChatApp\dataModels\bin\Debug\net6.0\dataModels.dll
+C:\Users\WIN-AHD-003\source\repos\ChatApp\dataModels\bin\Debug\net6.0\dataModels.pdb
+C:\Users\WIN-AHD-003\source\repos\ChatApp\dataModels\obj\Debug\net6.0\dataModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WIN-AHD-003\source\repos\ChatApp\dataModels\obj\Debug\net6.0\dataModels.AssemblyInfoInputs.cache
+C:\Users\WIN-AHD-003\source\repos\ChatApp\dataModels\obj\Debug\net6.0\dataModels.AssemblyInfo.cs
+C:\Users\WIN-AHD-003\source\repos\ChatApp\dataModels\obj\Debug\net6.0\dataModels.csproj.CoreCompileInputs.cache
+C:\Users\WIN-AHD-003\source\repos\ChatApp\dataModels\obj\Debug\net6.0\dataModels.dll
+C:\Users\WIN-AHD-003\source\repos\ChatApp\dataModels\obj\Debug\net6.0\refint\dataModels.dll
+C:\Users\WIN-AHD-003\source\repos\ChatApp\dataModels\obj\Debug\net6.0\dataModels.pdb
+C:\Users\WIN-AHD-003\source\repos\ChatApp\dataModels\obj\Debug\net6.0\ref\dataModels.dll
+C:\Users\WIN-AHD-003\source\repos\chatApp\dataModels\bin\Debug\net6.0\dataModels.runtimeconfig.json
+C:\Users\WIN-AHD-003\source\repos\chatApp\dataModels\obj\Debug\net6.0\dataModels.csproj.AssemblyReference.cache
+C:\Users\WIN-AHD-003\source\repos\chatApp\dataModels\obj\Debug\net6.0\dataModels.genruntimeconfig.cache

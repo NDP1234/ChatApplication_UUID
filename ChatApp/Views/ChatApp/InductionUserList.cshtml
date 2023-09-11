@@ -1,0 +1,37 @@
+﻿@using dataModels.Entities;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<Inductionuser>
+@{
+    Layout = null;
+}
+<div class="my-5">
+
+    <table class="table text-light" id="inductionUserListTable">
+        <thead class="bg-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Email</th>
+                @* <th scope="col">Action</th> *@
+            </tr>
+        </thead>
+        <tbody class="bg-light text-dark">
+            @foreach (var user in Model)
+            {
+               @*  byte[] userGuidBytes = user.InductionuserGuid;
+                string userGuidString = BitConverter.ToString(userGuidBytes); *@
+
+                @* <tr class="ClickRowForInductionUser" data-inductionUserId="@user.Inductionuserid"> *@
+                <tr class="ClickRowForInductionUser" data-InductionUserGUID="@user.Inductionuserguid">
+
+                    <td>@user.FirstName @user.LastName</td>
+                    <td>@user.PhoneNumber</td>
+                    <td>@user.Email</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

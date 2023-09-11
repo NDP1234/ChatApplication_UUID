@@ -1,0 +1,56 @@
+﻿
+body {
+}
+
+.chatList {
+    height: 634px;
+}
+
+.highlighted {
+    /*background-color: darkblue; 
+    color: white;*/
+    background-color: darkgray;
+    color: black;
+    font-weight: bold;
+}
+
+.message-timestamp {
+    font-size: 11px;
+}
+
+.msg-sent, .msg-receive {
+    border-radius: 10px;
+}
+
+.borderCustom {
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+.bgChat {
+    background-color: #0e311c;
+}
+
+.bgSender {
+    background-color: #0a397d;
+}
+
+.BtnHover:hover {
+    background-color: aqua;
+    color: black;
+}
+
+.btn-outline-light :hover {
+    background-color: black;
+    color: white;
+}
+
+.bg-tr {
+    background-color: darkblue !important;
+}
+
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 2544px;
+    }
+}

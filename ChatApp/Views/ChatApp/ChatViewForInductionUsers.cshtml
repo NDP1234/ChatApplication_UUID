@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using dataModels.ViewModels
+@model ChatViewModel
+@{
+    // string ToInductionUserGuidString = BitConverter.ToString(@Model.Userid);
+} 
+<div class="bg-success text-light  mt-5 py-3 px-3">
+    <div class="userProfile bg-dark text-light text-center py-2 border-2 border-light borderCustom ">
+        @Model.FirstName @Model.LastName  (@Model.PhoneNumber)
+    </div>
+    <div class="chatList  text-light px-2 border border-2 border-white position-relative pt-3 overflow-auto bgChat">
+        @foreach (var msg in Model.commonUserModels)
+        {
+
+            <div class="message-container">
+                <div class="msg-sent bgSender text-light mt-2 ps-1 pe-2 py-2 border border-white d-inline-block float-end">
+                    @msg.Sms
+                </div>
+                <div class="clearfix"></div>
+                <div class="message-details text-end mt-1">
+                    <div class="message-timestamp">
+                        @msg.CreationTime?.ToString("dd MMMM yyyy HH:mm:ss") <span class="message-sender">(You)</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="message">
+        <div class="mb-3">
+            <label for="message-text-for-inductionUser" class="form-label mt-2">Write message</label>
+            <textarea class="form-control bg-light text-dark" id="message-text-for-inductionUser" rows="1"
+                      placeholder="Enter your message here.."></textarea>
+        </div>
+        <div>
+            @* <button class="btn btn-primary border-white BtnHover my-2  text-center" id="post-message-for-inductionUser" data-toInductionUserId="@ToInductionUserGuidString" type="button"> *@
+            <button class="btn btn-primary border-white BtnHover my-2  text-center" id="post-message-for-inductionUser" data-toInductionUserId="@Model.Userid" type="button">
+                Post Message
+                <i class="bi bi-arrow-right-circle-fill"></i>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+
+
