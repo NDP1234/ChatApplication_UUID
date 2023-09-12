@@ -46,6 +46,8 @@ namespace Services.Repository
             var getFirstUser = _db.Users.First();
             var firstGuid = getFirstUser.GuidforUser;
 
+            var creator = getFirstUser.FirstName + ' ' + getFirstUser.LastName;
+
             var userInfo = _db.Users.Where(user => user.GuidforUser == userId).First();
             ChatViewModel viewModel = new ChatViewModel();
             viewModel.FirstName = userInfo.FirstName;
@@ -53,6 +55,7 @@ namespace Services.Repository
             viewModel.PhoneNumber = userInfo.PhoneNumber;
             viewModel.Userid = userInfo.GuidforUser;
             viewModel.ForFirstUser = firstGuid;
+            viewModel.creator = creator;
             viewModel.commonUserModels = _db.Smsmsgtousers
             .Where(user => (user.UserId == userInfo.GuidforUser && user.CreatorId == firstGuid) || (user.UserId == firstGuid && user.CreatorId == userInfo.GuidforUser))
             .OrderBy(user => user.CreationTime)
@@ -62,6 +65,7 @@ namespace Services.Repository
                 UserId = user.UserId,
                 Sms = user.Sms,
                 IsDelete = user.IsDelete,
+                ToUserName  = userInfo.FirstName + " " + userInfo.LastName,
                 CreatorId = user.CreatorId,
                 ModificationId = user.ModificationId,
                 DeletorId = user.DeletorId,
@@ -89,6 +93,7 @@ namespace Services.Repository
             viewModel.PhoneNumber = userInfo.PhoneNumber;
             viewModel.Userid = userInfo.Inductionuserguid;
             viewModel.ForFirstUser = firstGuid;
+            viewModel.creator = getFirstUser.FirstName + " " + getFirstUser.LastName;
             viewModel.commonUserModels = _db.Smsmsgtoinductionusers
             .Where(user => (user.InductionUserId == userInfo.Inductionuserguid) && (user.CreatorId == firstGuid))
             .OrderBy(user => user.CreationTime)

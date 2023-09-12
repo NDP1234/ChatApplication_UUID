@@ -21,12 +21,12 @@ $(document).on('click', '#openInductionUserList', function () {
 });
 
 
-$(document).on('click', 'tr.ClickRow', function () {
+$(document).on('click', 'li a.ClickRow', function () {
     //var userId = $(this).attr("data-userId");
     var userId = $(this).attr("data-UserGUID");
     console.log(userId);
     console.log("clicked");
-    $('tr.ClickRow').removeClass('highlighted');
+    $('li a.ClickRow').removeClass('highlighted');
     $(this).addClass('highlighted');
     $.ajax({
         url: "/ChatApp/chatView?userId=" + userId,
@@ -37,10 +37,10 @@ $(document).on('click', 'tr.ClickRow', function () {
 });
 
 
-$(document).on("click", '.ClickRowForInductionUser', function () {
+$(document).on("click", 'li a.ClickRowForInductionUser', function () {
     var inductionUSerId = $(this).attr("data-InductionUserGUID");
     console.log(inductionUSerId);
-    $('tr').removeClass('highlighted');
+    $('li a.ClickRowForInductionUser').removeClass('highlighted');
     $(this).addClass('highlighted');
     $.ajax({
         url: "/ChatApp/chatViewForInductionUser?userId=" + inductionUSerId,
@@ -52,7 +52,7 @@ $(document).on("click", '.ClickRowForInductionUser', function () {
 
 document.getElementById('openUserList').addEventListener('click', function () {
     Swal.fire({
-        title: "click on perticular data to communicate with him/her",
+        title: "click on perticular user to communicate ",
         icon: 'info',
         confirmButtonText: 'OK'
     });
@@ -60,7 +60,7 @@ document.getElementById('openUserList').addEventListener('click', function () {
 
 document.getElementById('openInductionUserList').addEventListener('click', function () {
     Swal.fire({
-        title: "click on particular data to communicate with him/her",
+        title: "click on particular induction user to communicate",
         icon: 'info',
         confirmButtonText: 'OK'
     });
@@ -72,30 +72,39 @@ $(document).on('click', '#post-message', function () {
     console.log(toUserId);
     var message = $('#message-text').val();
     console.log(message);
-    $.ajax({
-        url: '/ChatApp/SaveComments',
-        type: 'POST',
-        data: {
-            sendToUser: toUserId,
-            messageTxt: message
-        },
-        success: function (data) {
-            if (data === true) {
-                $('#message-text').val('');
-                Swal.fire({
-                    title: "message sent successfully",
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                });
-                $.ajax({
-                    url: "/ChatApp/chatView?userId=" + toUserId,
-                    success: function (data) {
-                        $('.UserChatDetails').html(data);
-                    }
-                })
+
+    if (message.trim() === "") {
+        Swal.fire({
+            title: "Please enter a message",
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+        return; 
+    }
+        $.ajax({
+            url: '/ChatApp/SaveComments',
+            type: 'POST',
+            data: {
+                sendToUser: toUserId,
+                messageTxt: message
+            },
+            success: function (data) {
+                if (data === true) {
+                    $('#message-text').val('');
+                    Swal.fire({
+                        title: "message sent successfully",
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    });
+                    $.ajax({
+                        url: "/ChatApp/chatView?userId=" + toUserId,
+                        success: function (data) {
+                            $('.UserChatDetails').html(data);
+                        }
+                    })
+                }
             }
-        }
-    });
+        });
 });
 
 $(document).on('click', '#post-message-for-inductionUser', function () {
@@ -103,6 +112,16 @@ $(document).on('click', '#post-message-for-inductionUser', function () {
     console.log(toUserId);
     var message = $('#message-text-for-inductionUser').val();
     console.log(message);
+
+    if (message.trim() === "") {
+        Swal.fire({
+            title: "Please enter a message",
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+        return;
+    }
+
     $.ajax({
         url: '/ChatApp/SaveCommnetsForInductionUser',
         type: 'POST',

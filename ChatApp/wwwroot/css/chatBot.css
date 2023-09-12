@@ -5,15 +5,22 @@
 }
 
 
-.highlighted {
+/*.highlighted {*/
     /*background-color: darkblue; 
     color: white;*/
-    background-color: darkgray;
+    /*background-color: darkgray;
     color: darkblue;
     font-weight: bold;
 
-}
+}*/
 
+.highlighted {
+    /*background-color: #cfd3e1;*/
+    /*background-color: #ced9ff;*/
+    background-color: #dcdcdd;
+    color: #02021e;
+    font-weight: bold;
+}
 .message-timestamp {
     font-size: 11px;
 }
@@ -59,14 +66,14 @@
 .myButtons {
     /*background-color: #0d1053;*/
     
-    color: white;
+    color: black;
     /*border: 2px solid white;*/
 }
 .mynav {
     /*background-image: linear-gradient(to bottom,#0d1053,#2a46cf);*/
     /*background-image: linear-gradient(to bottom,#0d1053,#032eff);*/
-    background-image: linear-gradient(to bottom,#0c0c0c,#012cff);
- 
+    /*background-image: linear-gradient(to bottom,#0c0c0c,#012cff);*/
+    background-color: #ededed;
 }
 
 body {
@@ -76,19 +83,23 @@ body {
     /*background-image: radial-gradient(#0062ff,#eaeaff);*/
     /*background-image: radial-gradient(#eaeaff,#0062ff);*/
     /*background-image: linear-gradient(to bottom, #0062ff,#eaeaff);*/
-    background-image: linear-gradient(to bottom, #c1cfdb,#90c3db);
-  
+    /*background-image: linear-gradient(to bottom, #c1cfdb,#90c3db);*/
+    background: radial-gradient(circle at center, #ffffff, #f8f9fa);
     height: 100%;
 }
 
 .nav-item :hover {
     /*background-color: #2929c1;*/
-    background-color: #1b2abf;
+    /*background-color: #1b2abf;
+    color: white;*/
+    background-color: #1575ff;
     color: white;
 }
 .activated {
     /*background-color: #2929c1;*/
-    background-color: #1b2abf;
+    /* background-color: #1b2abf;
+    color: white;*/
+    background-color: #1575ff;
     color: white;
     border: 1px solid white;
 }
@@ -110,11 +121,134 @@ body {
     background-color: #091e49;
 }
 .width98{
-    width:60%;
+    width:80%;
+    margin-right:10px;
 }
-tr {
+li a.ClickRow, li a.ClickRowForInductionUser {
     cursor: pointer;
 }
 .mb-custom{
     padding-bottom: 20px;
+}
+ul li{
+    text-decoration: none;
+}
+.chatListOfUser {
+    background-color: #e8edf9;
+}
+@media (max-width: 576px) {
+    .chatListOfUser, .chatListOfInductionUser {
+        height: 90vh;
+    }
+}
+
+/* Medium screens */
+@media (min-width: 577px) and (max-width: 992px) {
+    .chatListOfUser, .chatListOfInductionUser {
+        height: 80vh;
+    }
+}
+
+/* Large screens */
+@media (min-width: 993px) {
+    .chatListOfUser, .chatListOfInductionUser {
+        height: 70vh;
+    }    
+}
+
+.BtnHover{
+    height: 62px;
+    width:62px;
+}
+.sender {
+   width: 60px; 
+   height: 60px; 
+   background-color: #055160; 
+   color: white; 
+   text-align: center; 
+   font-size: 24px;
+}
+.reciever {
+   width: 60px; 
+   height: 60px; 
+   background-color: #016ab1; 
+   color: white; 
+   text-align: center; 
+   font-size: 24px;
+}
+@media(min-width:1024px){
+    .chatListOfUser, .chatListOfInductionUser {
+        height: 892px;
+        overflow: auto;
+    }
+    .sender, .reciever {
+        width: 55px;
+        height: 55px;
+        font-size: 20px;
+    }
+    .userlist, .inductionUserList {
+        height: 890px;
+        overflow: auto;
+    }
+}
+@media (min-width:769px) and ( max-width:1024px) {
+    .sender, .reciever {
+        width: 55px;
+        height: 55px;
+        font-size: 17px;
+    }
+    .chatListOfUser, .chatListOfInductionUser {
+        height: 892px;
+        overflow: scroll;
+    }
+}
+@media (min-width:768px) and ( max-width:768px) {
+    .sender, .reciever {
+        width: 44px;
+        height: 39px;
+        font-size: 15px;
+    }
+}
+@media (min-width:426px) and ( max-width:767px) {
+    .userlist, .inductionUserList {
+        height: 400px;
+        overflow: scroll;
+    }
+
+    .chatListOfUser, .chatListOfInductionUser {
+        height: 600px;
+        overflow: scroll;
+    }
+
+    .BtnHover {
+        height: 54px;
+    }
+
+    .sender, .reciever {
+        width: 50px;
+        height: 50px;
+        font-size: 19px;
+    }
+}
+
+@media(max-width:425px){
+
+    .userlist, .inductionUserList {
+        height: 350px;
+        overflow: scroll;
+    }
+
+    .chatListOfUser, .chatListOfInductionUser {
+        height: 550px;
+        overflow: scroll;
+    }
+
+    .BtnHover {
+        height: 54px;
+    }
+    .sender, .reciever {
+        width: 44px;
+        height: 39px;
+        font-size: 15px;
+    }
 }

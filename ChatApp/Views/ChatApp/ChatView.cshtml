@@ -6,7 +6,7 @@
 @{
     // string TouserGuidString = BitConverter.ToString(@Model.Userid);
 } 
-<div class="bg-outside text-light mt-5 py-3 px-3">
+@* <div class="bg-outside text-light mt-5 py-3 px-3">
     <div class="userProfile chat-profile text-light text-center py-2 border-2 border-light borderCustom mb-2">
         @Model.FirstName @Model.LastName (@Model.PhoneNumber)
     </div>
@@ -62,7 +62,88 @@
     </div>
     
 
+</div> *@
+<div class="py-2 px-2 chatListOfUser" style="background-color: #e2e5e5;">
+    <div style="height:80% ; overflow-y: auto;">
+        <ul class="list-unstyled">
+            @foreach (var msg in Model.commonUserModels)
+            {
+                var fullName = Model.creator;
+                var initials = string.Join("", fullName.Split().Select(name => name[0]));
+
+                var fullToUserName = msg.ToUserName;
+                var initialsOfToUser = string.Join("", fullToUserName.Split().Select(name => name[0]));
+
+                
+
+                @if (msg.UserId != Model.ForFirstUser)
+                {
+                    <li class="d-flex justify-content-between mb-4">
+                        <div class="rounded-circle d-flex align-self-center me-3 shadow-1-strong sender" >
+                            <span class="mx-auto my-auto">@initials</span>
+                        </div>
+                        <div class="card ">
+                            <div class="card-header d-flex justify-content-between p-3">
+                                <p class="fw-bold mb-0" style="color:#055160; ">@fullName</p>
+                                <p class="text-muted small mb-0 ms-1">
+                                    <i class="bi bi-clock"></i>  @msg.CreationTime?.ToString("dd/MM/yyyy hh:mmtt")
+                                </p>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-0">
+                                    @msg.Sms
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    
+
+
+                }
+                else
+                {
+                    
+                    <li class="d-flex justify-content-between mb-4">
+                        <div class="card w-100">
+                            <div class="card-header d-flex justify-content-between p-3">
+                                <p class="fw-bold mb-0" style="color:#016ab1; ">@fullToUserName</p>
+                                <p class="text-muted small mb-0 ms-1"><i class="bi bi-clock"></i> @msg.CreationTime?.ToString("dd/MM/yyyy hh:mmtt")</p>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-0">
+                                    @msg.Sms
+                                </p>
+                            </div>
+                        </div>
+                        <div class="rounded-circle d-flex align-self-center me-3 shadow-1-strong reciever">
+                            <span class="mx-auto my-auto">@initialsOfToUser</span>
+                        </div>
+                    </li>
+                    
+
+                }
+            }
+        </ul>
+    </div>
+    
+    <div class="position-relative mb-custom" style="height:10% ;">
+        <div class="message position-absolute bottom-0 start-50 translate-middle-x width98" style="bottom: 0; height: auto;">
+            <div class="d-flex justify-content-center">
+                <div style="width:80%;">
+                    <textarea class="form-control bg-white text-dark" id="message-text" rows="2"
+                              placeholder="Enter your message here.."></textarea>
+                </div>
+                <div class="align-self-center">
+                    <button class="btn btn-primary border-white BtnHover text-center" id="post-message" data-toUserId="@Model.Userid" type="button">
+                        <i class="bi bi-send"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+   
 </div>
+        
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@

@@ -19,6 +19,7 @@ namespace dataModels.ViewModels
 
         public string PhoneNumber { get; set; } = null!;
 
+        public string creator { get; set; } = null!;
         public class CommonUserModel
         {
             public Guid Id { get; set; }
@@ -28,6 +29,8 @@ namespace dataModels.ViewModels
             public string Sms { get; set; } = null!;
 
             public bool IsDelete { get; set; }
+
+            public string ToUserName { get; set; }
 
             public Guid? CreatorId { get; set; }
 
