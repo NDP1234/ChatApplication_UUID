@@ -1,17 +1,17 @@
 ﻿
-body {
-}
 
 .chatList {
-    height: 634px;
+    height: 670px;
 }
+
 
 .highlighted {
     /*background-color: darkblue; 
     color: white;*/
     background-color: darkgray;
-    color: black;
+    color: darkblue;
     font-weight: bold;
+
 }
 
 .message-timestamp {
@@ -28,7 +28,9 @@ body {
 }
 
 .bgChat {
-    background-color: #0e311c;
+    /*background-color: #118ab2;*/
+    /*background-image: radial-gradient(#2a46cf, #050c12);*/
+    background-image: radial-gradient(#b9cadd, #1769af);
 }
 
 .bgSender {
@@ -36,8 +38,8 @@ body {
 }
 
 .BtnHover:hover {
-    background-color: aqua;
-    color: black;
+    background-color: darkblue;
+    color: white;
 }
 
 .btn-outline-light :hover {
@@ -48,9 +50,71 @@ body {
 .bg-tr {
     background-color: darkblue !important;
 }
-
 @media (min-width: 1400px) {
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
         max-width: 2544px;
     }
+}
+/*---------------------*/
+.myButtons {
+    /*background-color: #0d1053;*/
+    
+    color: white;
+    /*border: 2px solid white;*/
+}
+.mynav {
+    /*background-image: linear-gradient(to bottom,#0d1053,#2a46cf);*/
+    /*background-image: linear-gradient(to bottom,#0d1053,#032eff);*/
+    background-image: linear-gradient(to bottom,#0c0c0c,#012cff);
+ 
+}
+
+body {
+    /*background-image: radial-gradient(#2a46cf, #050c12);*/
+    /*background-image: radial-gradient(#1F75FE,#191970);*/
+    /* background-image: radial-gradient(#2a46cf, #050c12); */
+    /*background-image: radial-gradient(#0062ff,#eaeaff);*/
+    /*background-image: radial-gradient(#eaeaff,#0062ff);*/
+    /*background-image: linear-gradient(to bottom, #0062ff,#eaeaff);*/
+    background-image: linear-gradient(to bottom, #c1cfdb,#90c3db);
+  
+    height: 100%;
+}
+
+.nav-item :hover {
+    /*background-color: #2929c1;*/
+    background-color: #1b2abf;
+    color: white;
+}
+.activated {
+    /*background-color: #2929c1;*/
+    background-color: #1b2abf;
+    color: white;
+    border: 1px solid white;
+}
+.bg-1 {
+    
+    background-color: #F0F8FF;
+}
+.bg-2 {
+    background-color: #B9D9EB;
+}
+.bg-header {
+    background-color: #022391;
+    color: white;
+}
+.bg-outside {
+    background-color: white;
+}
+.chat-profile {
+    background-color: #091e49;
+}
+.width98{
+    width:60%;
+}
+tr {
+    cursor: pointer;
+}
+.mb-custom{
+    padding-bottom: 20px;
 }

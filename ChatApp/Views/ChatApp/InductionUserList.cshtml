@@ -1,4 +1,4 @@
-﻿@using dataModels.Entities;
+﻿﻿@using dataModels.Entities;
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -9,7 +9,7 @@
 <div class="my-5">
 
     <table class="table text-light" id="inductionUserListTable">
-        <thead class="bg-dark">
+        <thead class="bg-header">
             <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Phone Number</th>
@@ -18,20 +18,34 @@
             </tr>
         </thead>
         <tbody class="bg-light text-dark">
-            @foreach (var user in Model)
-            {
-               @*  byte[] userGuidBytes = user.InductionuserGuid;
-                string userGuidString = BitConverter.ToString(userGuidBytes); *@
+            @{
+                int item = 0;
+                @foreach (var user in Model)
+                {
+                    if(item % 2== 0)
+                    {
+                        <tr class="ClickRowForInductionUser bg-1" data-InductionUserGUID="@user.Inductionuserguid">
 
-                @* <tr class="ClickRowForInductionUser" data-inductionUserId="@user.Inductionuserid"> *@
-                <tr class="ClickRowForInductionUser" data-InductionUserGUID="@user.Inductionuserguid">
+                            <td>@user.FirstName @user.LastName</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>@user.Email</td>
 
-                    <td>@user.FirstName @user.LastName</td>
-                    <td>@user.PhoneNumber</td>
-                    <td>@user.Email</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr class="ClickRowForInductionUser bg-2" data-InductionUserGUID="@user.Inductionuserguid">
 
-                </tr>
+                            <td>@user.FirstName @user.LastName</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>@user.Email</td>
+
+                        </tr>
+                    }
+                    item++;
+                }
             }
+            
         </tbody>
     </table>
 </div>

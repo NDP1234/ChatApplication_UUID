@@ -6,20 +6,20 @@
 @{
     // string TouserGuidString = BitConverter.ToString(@Model.Userid);
 } 
-<div class="bg-success text-light mt-5 py-3 px-3">
-    <div class="userProfile bg-dark text-light text-center py-2 border-2 border-light borderCustom">
+<div class="bg-outside text-light mt-5 py-3 px-3">
+    <div class="userProfile chat-profile text-light text-center py-2 border-2 border-light borderCustom mb-2">
         @Model.FirstName @Model.LastName (@Model.PhoneNumber)
     </div>
     <div class="chatList text-light px-2 border border-2 border-white position-relative pt-3 overflow-auto bgChat">
+        <div class="chat-content" style="height: 90%; overflow-y: auto;">
         @foreach (var msg in Model.commonUserModels)
         {
-            @* byte[] userGuidBytes = msg.UserId;
-            string userGuidString = BitConverter.ToString(userGuidBytes); *@
+           
             <div class="message-container px-2">
 
                 @if (msg.UserId != Model.ForFirstUser)
                 {
-                    <div class="msg-sent bgSender text-light mt-2 ps-1 pe-2 py-2 border border-white d-inline-block float-end">
+                    <div class="msg-sent bgSender text-light mt-2 ps-2 pe-2 py-2 border border-white d-inline-block float-end">
                         @msg.Sms
                     </div>
                     <div class="clearfix"></div>
@@ -31,7 +31,7 @@
                 }
                 else
                 {
-                    <div class="msg-receive bg-dark text-light mt-2 ps-1 pe-2 py-2 border border-white position-relative d-inline-block">
+                    <div class="msg-receive bg-dark text-light mt-2 ps-2 pe-2 py-2 border border-white position-relative d-inline-block">
                         @msg.Sms
                     </div>
                     <div class="message-details text-start mt-1">
@@ -43,21 +43,24 @@
                 <div class="clearfix"></div>
             </div>
         }
-    </div>
-    <div class="message">
-        <div class="mb-3">
-            <label for="comment-text" class="form-label mt-2">Write message</label>
-            <textarea class="form-control bg-light text-dark" id="message-text" rows="1"
-                      placeholder="Enter your message here.."></textarea>
+       </div>
+        <div class="position-relative mb-custom" style="height:10% ;">
+            <div class="message position-absolute bottom-1 start-50 translate-middle-x width98">
+                <div class="d-flex justify-content-center">
+                    <div class="w-75">
+                        <textarea class="form-control bg-dark text-light" id="message-text" rows="1"
+                                  placeholder="Enter your message here.."></textarea>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary border-white BtnHover  text-center" id="post-message" data-toUserId="@Model.Userid" type="button">
+                            <i class="bi bi-send"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            @* <button class="btn btn-primary border-white BtnHover my-2 text-center" id="post-message" data-toUserId="@TouserGuidString" type="button"> *@
-            <button class="btn btn-primary border-white BtnHover my-2 text-center" id="post-message" data-toUserId="@Model.Userid" type="button">
-                Post Message
-                <i class="bi bi-arrow-right-circle-fill"></i>
-            </button>
-        </div>
     </div>
+    
 
 </div>
 @*

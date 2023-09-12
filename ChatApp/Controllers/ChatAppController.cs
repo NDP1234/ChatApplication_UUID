@@ -53,5 +53,8 @@ namespace ChatApp.Controllers
             var status = _chatbotApplication.SaveCommnetsForInductionUsers(sendToUserId, messageText);
             return status;
         }
+        public IActionResult chatUI() {
+        return View();
+        }
     }
 }

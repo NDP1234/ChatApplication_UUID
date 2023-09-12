@@ -1,23 +1,24 @@
 ﻿
-$(document).on('click', '#openUserList', function () {
-    console.log("clicked");
-    $.ajax({
-        url: "/ChatApp/userList",
-        success: function (data) {
-            $('.UserListContainer').html(data);
-        }
-    })
-})
-$(document).on('click', '#openInductionUserList', function () {
-    console.log("clicked");
-    $.ajax({
-        url: "/ChatApp/InductionUser",
-        success: function (data) {
-            $('.InductionUserListContainer').html(data);
-        }
-    })
-})
 
+function loadContent(url, container) {
+    $.ajax({
+        url: url,
+        success: function (data) {
+            $(container).html(data);
+        }
+    });
+}
+
+// Handle tab button clicks
+$(document).on('click', '#openUserList', function () {
+    console.log("Users tab clicked");
+    loadContent("/ChatApp/userList", '.UserListContainer');
+});
+
+$(document).on('click', '#openInductionUserList', function () {
+    console.log("Induction Users tab clicked");
+    loadContent("/ChatApp/InductionUser", '.InductionUserListContainer');
+});
 
 
 $(document).on('click', 'tr.ClickRow', function () {
@@ -127,4 +128,14 @@ $(document).on('click', '#post-message-for-inductionUser', function () {
         }
     });
 });
+
+//-----
+$(document).on("click", ".myButtons", function () {
+    $('.myButtons').removeClass("activated");
+    $('.myButtons').removeClass("fw-bold");
+    $('.myButtons').removeClass("pb-2");
+    $(this).addClass("activated");
+    $(this).addClass("fw-bold");
+    $(this).addClass("pb-2");
+})
 

@@ -8,30 +8,41 @@
 } 
 <div class="my-5">
 
-    <table class="table text-light border border-2" id="userListTable">
-        <thead class="bg-dark">
+    <table class="table text-dark " id="userListTable">
+        <thead class="bg-header" >
             <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Phone Number</th>
-                <th scope="col">Email</th>
+                <th class="priority-1" scope="col">Name</th>
+                <th class="priority-2" scope="col">Phone Number</th>
+                <th class="priority-3" scope="col">Email</th>
                 @* <th scope="col">Action</th> *@
             </tr>
         </thead>
         <tbody class="bg-light text-dark">
-            @foreach (var user in Model.Skip(1))
-            {
-                @* <tr class="ClickRow" data-UserGUID="@userGuidString"> *@
-                <tr class ="ClickRow" data-UserGUID="@user.GuidforUser">
-                    <td>@user.FirstName @user.LastName</td>
-                    <td>@user.PhoneNumber</td>
-                    <td>@user.Email</td>
-                    @* <td>
-                <button type="button" value="@user.Userid" class="btn btn-success userChat">Send the message</button>
-                </td> *@
-                </tr>
-
-
+            @{
+                int item = 0;
+                @foreach (var user in Model.Skip(1))
+                {
+                    @* <tr class="ClickRow" data-UserGUID="@userGuidString"> *@
+                    if(item%2 == 0)
+                    {
+                        <tr class="ClickRow bg-1" data-UserGUID="@user.GuidforUser">
+                            <td class="priority-1">@user.FirstName @user.LastName</td>
+                            <td class="priority-2">@user.PhoneNumber</td>
+                            <td class="priority-3">@user.Email</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr class="ClickRow bg-2" data-UserGUID="@user.GuidforUser">
+                            <td>@user.FirstName @user.LastName</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>@user.Email</td>
+                        </tr>
+                    }
+                    item++;
+                }
             }
+            
         </tbody>
     </table>
 </div>
