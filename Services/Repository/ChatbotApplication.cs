@@ -17,17 +17,7 @@ namespace Services.Repository
         {
             _db = db;
         }
-        //public static byte[] HexStringToByteArray(string hex)
-        //{
-        //    int numberChars = hex.Length;
-        //    byte[] bytes = new byte[numberChars / 2];
-        //    for (int i = 0; i < numberChars; i += 2)
-        //    {
-        //        bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
-        //    }
-        //    return bytes;
-        //}
-
+        
 
         public List<Inductionuser> getInductionUserList()
         {
@@ -61,7 +51,6 @@ namespace Services.Repository
             .OrderBy(user => user.CreationTime)
             .Select(user => new ChatViewModel.CommonUserModel
             {
-                //Id = user.Id,
                 UserId = user.UserId,
                 Sms = user.Sms,
                 IsDelete = user.IsDelete,
@@ -78,11 +67,7 @@ namespace Services.Repository
 
         public ChatViewModel fetchMessageDetailsForInductionUser(Guid userId)
         {
-            //byte[] byteArray = HexStringToByteArray(userId.Replace("-", ""));
-
-            //var firstuserBytes = _db.Users.First();
-            //byte[] FirstUserGuidBytes = firstuserBytes.UserGuid;
-            //string userGuidString = BitConverter.ToString(FirstUserGuidBytes);
+            
             var getFirstUser = _db.Users.First();
             var firstGuid = getFirstUser.GuidforUser;
 
@@ -99,7 +84,6 @@ namespace Services.Repository
             .OrderBy(user => user.CreationTime)
             .Select(user => new ChatViewModel.CommonUserModel
             {
-                //Id = user.Id,
                 UserId = user.InductionUserId,
                 Sms = user.Sms,
                 IsDelete = user.IsDelete,
@@ -115,7 +99,6 @@ namespace Services.Repository
 
         public bool SaveCommentsForUsers(Guid sendToUser, string messageTxt)
         {
-            //byte[] byteArray = HexStringToByteArray(sendToUser.Replace("-", ""));
 
             var userInfo = _db.Users.Where(user => user.GuidforUser == sendToUser).FirstOrDefault();
 
@@ -143,7 +126,6 @@ namespace Services.Repository
 
         public bool SaveCommnetsForInductionUsers(Guid sendToUserId, string messageText)
         {
-            //byte[] byteArray = HexStringToByteArray(sendToUserId.Replace("-", ""));
 
             var inductionUserInfo = _db.Inductionusers.Where(iuser => iuser.Inductionuserguid == sendToUserId).FirstOrDefault();
 

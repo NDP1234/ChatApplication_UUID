@@ -5,18 +5,10 @@
 }
 
 
-/*.highlighted {*/
-    /*background-color: darkblue; 
-    color: white;*/
-    /*background-color: darkgray;
-    color: darkblue;
-    font-weight: bold;
 
-}*/
 
 .highlighted {
-    /*background-color: #cfd3e1;*/
-    /*background-color: #ced9ff;*/
+   
     background-color: #dcdcdd;
     color: #02021e;
     font-weight: bold;
@@ -35,8 +27,7 @@
 }
 
 .bgChat {
-    /*background-color: #118ab2;*/
-    /*background-image: radial-gradient(#2a46cf, #050c12);*/
+   
     background-image: radial-gradient(#b9cadd, #1769af);
 }
 
@@ -64,41 +55,29 @@
 }
 /*---------------------*/
 .myButtons {
-    /*background-color: #0d1053;*/
+    
     
     color: black;
-    /*border: 2px solid white;*/
+   
 }
 .mynav {
-    /*background-image: linear-gradient(to bottom,#0d1053,#2a46cf);*/
-    /*background-image: linear-gradient(to bottom,#0d1053,#032eff);*/
-    /*background-image: linear-gradient(to bottom,#0c0c0c,#012cff);*/
+    
     background-color: #ededed;
 }
 
 body {
-    /*background-image: radial-gradient(#2a46cf, #050c12);*/
-    /*background-image: radial-gradient(#1F75FE,#191970);*/
-    /* background-image: radial-gradient(#2a46cf, #050c12); */
-    /*background-image: radial-gradient(#0062ff,#eaeaff);*/
-    /*background-image: radial-gradient(#eaeaff,#0062ff);*/
-    /*background-image: linear-gradient(to bottom, #0062ff,#eaeaff);*/
-    /*background-image: linear-gradient(to bottom, #c1cfdb,#90c3db);*/
+    
     background: radial-gradient(circle at center, #ffffff, #f8f9fa);
     height: 100%;
 }
 
 .nav-item :hover {
-    /*background-color: #2929c1;*/
-    /*background-color: #1b2abf;
-    color: white;*/
+    
     background-color: #1575ff;
     color: white;
 }
 .activated {
-    /*background-color: #2929c1;*/
-    /* background-color: #1b2abf;
-    color: white;*/
+    
     background-color: #1575ff;
     color: white;
     border: 1px solid white;
@@ -142,14 +121,13 @@ ul li{
     }
 }
 
-/* Medium screens */
+
 @media (min-width: 577px) and (max-width: 992px) {
     .chatListOfUser, .chatListOfInductionUser {
         height: 80vh;
     }
 }
 
-/* Large screens */
 @media (min-width: 993px) {
     .chatListOfUser, .chatListOfInductionUser {
         height: 70vh;

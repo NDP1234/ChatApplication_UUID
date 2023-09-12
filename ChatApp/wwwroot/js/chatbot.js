@@ -9,7 +9,6 @@ function loadContent(url, container) {
     });
 }
 
-// Handle tab button clicks
 $(document).on('click', '#openUserList', function () {
     console.log("Users tab clicked");
     loadContent("/ChatApp/userList", '.UserListContainer');
@@ -22,7 +21,6 @@ $(document).on('click', '#openInductionUserList', function () {
 
 
 $(document).on('click', 'li a.ClickRow', function () {
-    //var userId = $(this).attr("data-userId");
     var userId = $(this).attr("data-UserGUID");
     console.log(userId);
     console.log("clicked");

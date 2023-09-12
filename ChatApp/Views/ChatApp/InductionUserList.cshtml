@@ -6,49 +6,7 @@
 @{
     Layout = null;
 }
-@* <div class="my-5">
 
-    <table class="table text-light" id="inductionUserListTable">
-        <thead class="bg-header">
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Phone Number</th>
-                <th scope="col">Email</th>
-              
-            </tr>
-        </thead>
-        <tbody class="bg-light text-dark">
-            @{
-                int item = 0;
-                @foreach (var user in Model)
-                {
-                    if(item % 2== 0)
-                    {
-                        <tr class="ClickRowForInductionUser bg-1" data-InductionUserGUID="@user.Inductionuserguid">
-
-                            <td>@user.FirstName @user.LastName</td>
-                            <td>@user.PhoneNumber</td>
-                            <td>@user.Email</td>
-
-                        </tr>
-                    }
-                    else
-                    {
-                        <tr class="ClickRowForInductionUser bg-2" data-InductionUserGUID="@user.Inductionuserguid">
-
-                            <td>@user.FirstName @user.LastName</td>
-                            <td>@user.PhoneNumber</td>
-                            <td>@user.Email</td>
-
-                        </tr>
-                    }
-                    item++;
-                }
-            }
-            
-        </tbody>
-    </table>
-</div> *@
 <div class="card inductionUserList">
     <div class="card-body">
         <h5 class="font-weight-bold mb-3 text-center text-lg-start">Induction Users</h5>
@@ -66,9 +24,7 @@
                                 <p class="small text-muted">@user.PhoneNumber</p>
                             </div>
                         </div>
-                        @* <div class="pt-1">
-                            <p class="small text-muted mb-1 ">Just now</p>
-                        </div> *@
+                        
                     </a>
                 </li>
             }
